@@ -11,10 +11,11 @@ with orders_customers as (
 count_products as (
     select
     product_name,
+    product_category,
     count(product_name) as nb_product
 
     from orders_customers
-    group by product_name
+    group by product_name, product_category
 )
 select * from count_products
 order by nb_product DESC
